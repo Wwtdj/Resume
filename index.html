@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0A0A0A" />
+
+<title>عبدالله السيد — B o D Y</title>
+<meta name="description" content="عبدالله السيد — B o D Y. طالب جامعي، مبرمج في طور التعلّم، وكاتب. تجربة رقمية شخصية تعرض الهوية والمهارات والمشروعات والاهتمامات." />
+<meta name="author" content="Abdullah Elsayed" />
+<meta name="keywords" content="Abdullah Elsayed, B o D Y, عبدالله السيد, portfolio, personal website, programmer, writer" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="عبدالله السيد — B o D Y" />
+<meta property="og:description" content="طالب جامعي • مبرمج في طور التعلّم • كاتب" />
+<meta property="og:image" content="https://i.postimg.cc/FHjXKxNc/IMG-20261004-WA0030.jpg" />
+<meta property="og:locale" content="ar_EG" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="عبدالله السيد — B o D Y" />
+<meta name="twitter:description" content="طالب جامعي • مبرمج في طور التعلّم • كاتب" />
+<meta name="twitter:image" content="https://i.postimg.cc/FHjXKxNc/IMG-20261004-WA0030.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A'/%3E%3Ctext x='50' y='70' font-family='Inter,Arial,sans-serif' font-size='54' font-weight='900' fill='%23C52B35' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================
+   RESET & TOKENS
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0A0A0A;
+  --bg-soft: #131313;
+  --fg: #F2F0EC;
+  --muted: #929292;
+  --accent: #C52B35;
+  --border: rgba(242, 240, 236, 0.12);
+  --border-soft: rgba(242, 240, 236, 0.06);
+  --font-ar: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-en: 'Inter', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+  background: var(--bg);
+}
+
+html[lang="ar"] body { font-family: var(--font-ar); }
+html[lang="en"] body { font-family: var(--font-en); }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
+ul { list-style: none; }
+
+::selection { background: var(--accent); color: var(--fg); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.container {
+  width: min(1400px, 100% - 4rem);
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .container { width: calc(100% - 2rem); }
+}
+
+/* ============================================
+   CUSTOM CURSOR
+   ============================================ */
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s var(--ease), height 0.25s var(--ease), opacity 0.25s var(--ease);
+  opacity: 0;
+  will-change: transform;
+}
+
+.cursor.active { opacity: 1; }
+
+.cursor.hover {
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 1px solid var(--accent);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor { display: none !important; }
+  body { cursor: auto !important; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+  a, button { cursor: none; }
+}
+
+/* ============================================
+   SCROLL PROGRESS
+   ============================================ */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--accent);
+  z-index: 200;
+  transition: width 0.05s linear;
+  will-change: width;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10, 10, 10, 0.92);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.3s var(--ease);
+}
+
+.nav-logo {
+  font-family: var(--font-en);
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+html[lang="ar"] .nav-links { font-family: var(--font-ar); font-size: 0.85rem; letter-spacing: 0; text-transform: none; }
+
+.nav-links a {
+  color: var(--muted);
+  transition: color 0.3s var(--ease);
+  position: relative;
+}
+
+.nav-links a:hover { color: var(--fg); }
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  inset-inline-start: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s var(--ease);
+}
+
+.nav-links a:hover::after { width: 100%; }
+
+.lang-toggle {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s var(--ease);
+  text-transform: uppercase;
+}
+
+.lang-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.menu-toggle {
+  display: none;
+  width: 32px; height: 24px;
+  position: relative;
+  z-index: 101;
+}
+
+.menu-toggle span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--fg);
+  transition: all 0.3s var(--ease);
+}
+
+.menu-toggle span:nth-child(1) { top: 6px; }
+.menu-toggle span:nth-child(2) { top: 16px; }
+
+.menu-toggle.active span:nth-child(1) { top: 11px; transform: rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { top: 11px; transform: rotate(-45deg); }
+
+@media (max-width: 860px) {
+  .nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .menu-toggle { display: block; }
+  .nav-right { gap: 1rem; }
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  transform: translateY(-100%);
+  transition: transform 0.5s var(--ease);
+}
+
+.mobile-menu.open { transform: translateY(0); }
+
+.mobile-menu a {
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 700;
+  color: var(--fg);
+  transition: color 0.3s var(--ease);
+}
+
+.mobile-menu a:hover { color: var(--accent); }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  padding: 120px 0 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+html[lang="ar"] .hero-top { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.85rem; }
+
+.hero-top span:first-child { color: var(--fg); }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-name {
+  font-size: clamp(3.5rem, 11vw, 10rem);
+  line-height: 0.9;
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+
+html[lang="en"] .hero-name { letter-spacing: -0.045em; }
+html[lang="ar"] .hero-name { font-weight: 700; letter-spacing: -0.01em; font-size: clamp(3rem, 10vw, 8.5rem); }
+
+.hero-name .line {
+  display: block;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.hero-name .word {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: slideUp 1.1s var(--ease-out) forwards;
+  will-change: transform;
+}
+
+.hero-name .line:nth-child(1) .word { animation-delay: 0.15s; }
+.hero-name .line:nth-child(2) .word { animation-delay: 0.3s; }
+
+@keyframes slideUp {
+  to { transform: translateY(0); }
+}
+
+.hero-alias {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-en);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--border);
+  margin-bottom: 1.75rem;
+  opacity: 0;
+  animation: fadeIn 1s var(--ease-out) 0.6s forwards;
+}
+
+.hero-alias::before {
+  content: '';
+  width: 5px; height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.hero-desc {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: var(--muted);
+  max-width: 480px;
+  opacity: 0;
+  animation: fadeIn 1s var(--ease-out) 0.8s forwards;
+  line-height: 1.7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-portrait {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 1.2s var(--ease-out) 0.5s forwards;
+}
+
+.hero-portrait::before {
+  content: 'Fig. 01';
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  background: var(--bg);
+  color: var(--accent);
+  font-family: var(--font-en);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem;
+  z-index: 2;
+  border-inline-start: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: grayscale(100%) contrast(1.05) brightness(0.95);
+  transition: filter 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.hero-portrait:hover img {
+  filter: grayscale(0%) contrast(1) brightness(1);
+  transform: scale(1.02);
+}
+
+.hero-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 3.5rem;
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  opacity: 0;
+  animation: fadeIn 1s var(--ease-out) 1.2s forwards;
+}
+
+html[lang="ar"] .hero-scroll { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.85rem; }
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 40%;
+  background: var(--accent);
+  animation: scrollDown 2s var(--ease) infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(250%); }
+}
+
+@media (max-width: 860px) {
+  .hero { padding: 100px 0 60px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-portrait { max-width: 320px; aspect-ratio: 4/5; }
+  .hero-name { margin-bottom: 1.5rem; }
+}
+
+/* ============================================
+   SECTIONS (COMMON)
+   ============================================ */
+.section {
+  padding: 7rem 0;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .section { padding: 4.5rem 0; }
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.section-num {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+html[lang="en"] .section-title { letter-spacing: -0.03em; }
+html[lang="ar"] .section-title { font-weight: 700; letter-spacing: -0.01em; }
+
+/* ============================================
+   REVEAL
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-name .word { transform: none !important; opacity: 1 !important; }
+  .hero-alias, .hero-desc, .hero-portrait, .hero-scroll { opacity: 1 !important; }
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.about-pull {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+html[lang="en"] .about-pull { letter-spacing: -0.01em; }
+
+.about-pull .accent { color: var(--accent); }
+
+.about-body p {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.about-body p:last-child { margin-bottom: 0; }
+
+.about-body strong { color: var(--fg); font-weight: 600; }
+
+/* ============================================
+   JOURNEY
+   ============================================ */
+.journey-timeline {
+  position: relative;
+  padding-inline-start: 2rem;
+}
+
+.journey-timeline::before {
+  content: '';
+  position: absolute;
+  top: 8px; bottom: 8px;
+  inset-inline-start: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  inset-inline-start: -2rem;
+  width: 9px; height: 9px;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+html[dir="rtl"] .timeline-item::before { transform: translateX(50%); }
+
+.timeline-year {
+  font-family: var(--font-en);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+html[lang="ar"] .timeline-year { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.9rem; }
+
+.timeline-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.timeline-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.timeline-result {
+  margin-top: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-inline-start: 2px solid var(--accent);
+  background: var(--bg-soft);
+  font-size: 0.9rem;
+  display: inline-flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.timeline-result .label {
+  color: var(--muted);
+  font-family: var(--font-en);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+}
+
+html[lang="ar"] .timeline-result .label { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.8rem; }
+
+.timeline-result .value {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* ============================================
+   SKILLS
+   ============================================ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .skills-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+.skill-group-title {
+  font-family: var(--font-en);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+html[lang="ar"] .skill-group-title { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.95rem; }
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  flex-wrap: wrap;
+}
+
+.skill-item:last-child { border-bottom: none; }
+
+.skill-name {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--fg);
+}
+
+.skill-level {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: var(--font-en);
+  letter-spacing: 0.05em;
+}
+
+html[lang="ar"] .skill-level { font-family: var(--font-ar); letter-spacing: 0; font-size: 0.85rem; }
+
+/* ============================================
+   PROJECTS
+   ============================================ */
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.project:first-child { border-top: 1px solid var(--border); }
+
+@media (max-width: 640px) {
+  .project { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+.project-main { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.project-num {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+}
+
+.project-title {
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+html[lang="en"] .project-title { letter-spacing: -0.02em; }
+
+.project-desc {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+.project-tech {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.project-tech span {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.project-status {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding-top: 0.35rem;
+}
+
+html[lang="ar"] .project-status { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.85rem; }
+
+/* ============================================
+   WRITING
+   ============================================ */
+.writing-quote {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.4;
+  margin: 3rem 0;
+  padding-inline-start: 1.5rem;
+  border-inline-start: 2px solid var(--accent);
+  font-style: italic;
+  color: var(--fg);
+}
+
+html[lang="en"] .writing-quote { letter-spacing: -0.02em; }
+
+.writing-quote .source {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: normal;
+  font-family: var(--font-en);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+html[lang="ar"] .writing-quote .source { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; }
+
+.interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+
+.interests li {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  transition: all 0.3s var(--ease);
+}
+
+.interests li:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.articles-soon {
+  padding: 2rem;
+  border: 1px dashed var(--border);
+  text-align: center;
+}
+
+.articles-soon .label {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+html[lang="ar"] .articles-soon .label { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.85rem; }
+
+.articles-soon p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   EXPERIENCE
+   ============================================ */
+.exp-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.exp-item:first-child { border-top: 1px solid var(--border); }
+
+@media (max-width: 640px) {
+  .exp-item { grid-template-columns: 1fr; gap: 0.75rem; }
+}
+
+.exp-company {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.exp-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.exp-meta .dot { color: var(--accent); }
+
+.exp-desc {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+.exp-role {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+html[lang="ar"] .exp-role { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.85rem; }
+
+/* ============================================
+   CERTIFICATIONS
+   ============================================ */
+.cert-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .cert-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; }
+}
+
+.cert-info h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.cert-info .sector {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.cert-info .hint {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-family: var(--font-en);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+html[lang="ar"] .cert-info .hint { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.9rem; }
+
+.cert-image {
+  cursor: pointer;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--border);
+}
+
+.cert-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.cert-image:hover img { transform: scale(1.03); }
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.contact-intro {
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  color: var(--muted);
+  max-width: 600px;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-inline 0.4s var(--ease), color 0.3s var(--ease);
+  flex-wrap: wrap;
+}
+
+.contact-item:first-child { border-top: 1px solid var(--border); }
+
+.contact-item:hover {
+  padding-inline: 1rem;
+  color: var(--accent);
+}
+
+.contact-label {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+html[lang="ar"] .contact-label { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.85rem; }
+
+.contact-value {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 500;
+  font-family: var(--font-en);
+  text-align: end;
+  word-break: break-word;
+}
+
+html[lang="ar"] .contact-value { font-family: var(--font-ar); }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  padding: 5rem 0 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: var(--font-en);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-brand::before,
+.footer-brand::after {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.footer-tag {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.footer-credit {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 3rem;
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+html[lang="ar"] .footer-meta { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; font-size: 0.8rem; }
+
+/* ============================================
+   BACK TO TOP
+   ============================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  inset-inline-end: 1.5rem;
+  width: 48px; height: 48px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  display: grid;
+  place-items: center;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(15px);
+  transition: all 0.4s var(--ease);
+  font-size: 1.1rem;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.97);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease);
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  inset-inline-end: 1.25rem;
+  width: 48px; height: 48px;
+  border: 1px solid var(--border);
+  font-size: 1.5rem;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s var(--ease);
+  z-index: 2;
+}
+
+.lightbox-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- Scroll Progress -->
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<header class="nav">
+  <a href="#home" class="nav-logo" aria-label="B o D Y — Home">B o D Y</a>
+  <div class="nav-right">
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about" data-i18n="nav.about">من أنا</a>
+      <a href="#journey" data-i18n="nav.journey">الرحلة</a>
+      <a href="#skills" data-i18n="nav.skills">المهارات</a>
+      <a href="#projects" data-i18n="nav.projects">المشروعات</a>
+      <a href="#writing" data-i18n="nav.writing">الكتابة</a>
+      <a href="#contact" data-i18n="nav.contact">التواصل</a>
+    </nav>
+    <button class="lang-toggle" id="langToggle" aria-label="Toggle language">EN</button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" data-i18n="nav.about">من أنا</a>
+  <a href="#journey" data-i18n="nav.journey">الرحلة</a>
+  <a href="#skills" data-i18n="nav.skills">المهارات</a>
+  <a href="#projects" data-i18n="nav.projects">المشروعات</a>
+  <a href="#writing" data-i18n="nav.writing">الكتابة</a>
+  <a href="#experience" data-i18n="nav.experience">الخبرات</a>
+  <a href="#certifications" data-i18n="nav.certifications">الشهادات</a>
+  <a href="#contact" data-i18n="nav.contact">التواصل</a>
+</div>
+
+<main>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-top">
+      <span data-i18n="hero.topLeft">01 — Portfolio 2026</span>
+      <span data-i18n="hero.topRight">Kafr El-Dawwar, Beheira, Egypt</span>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-left">
+        <h1 class="hero-name">
+          <span class="line"><span class="word" data-i18n="hero.name1">عبدالله</span></span>
+          <span class="line"><span class="word" data-i18n="hero.name2">السيد</span></span>
+        </h1>
+
+        <div class="hero-alias" data-i18n="hero.alias">B o D Y</div>
+
+        <p class="hero-desc" data-i18n="hero.desc">طالب جامعي • مبرمج في طور التعلّم • كاتب</p>
+
+        <a href="#about" class="hero-scroll">
+          <span class="scroll-line" aria-hidden="true"></span>
+          <span data-i18n="hero.scroll">اسحب للأسفل</span>
+        </a>
+      </div>
+
+      <figure class="hero-portrait">
+        <img src="https://i.postimg.cc/FHjXKxNc/IMG-20261004-WA0030.jpg"
+             alt="Abdullah Elsayed — portrait"
+             width="600" height="800"
+             fetchpriority="high" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ABOUT
+     ============================================ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title" data-i18n="about.title">من أنا</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-pull reveal">
+        <p data-i18n="about.pull">أنا في مرحلة بناء وتعلّم مستمر — <span class="accent">لا أدّعي الوصول، بل أشارك الطريق.</span></p>
+      </div>
+
+      <div class="about-body">
+        <p class="reveal" data-i18n="about.p1">أنا عبدالله السيد، طالب في الفرقة الأولى بكلية الزراعة، جامعة الإسكندرية — البرنامج العام. أقيم في كفر الدوار، البحيرة، مصر.</p>
+        <p class="reveal" data-i18n="about.p2">أهتم بالبرمجة والتكنولوجيا والكتابة والتفكير النقدي. أقرأ وأكتب وأستكشف الأفكار واللغات، ولي اهتمام خاص بعلم النفس والفلسفة والمناظرات.</p>
+        <p class="reveal" data-i18n="about.p3">أستخدم اسم <strong>B o D Y</strong> كهوية رقمية شخصية. هذا الموقع ليس سيرة ذاتية جاهزة، بل مساحة حيّة أنمو فيها وأحدّثها باستمرار.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     JOURNEY
+     ============================================ -->
+<section id="journey" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title" data-i18n="journey.title">الرحلة التعليمية</h2>
+    </div>
+
+    <div class="journey-timeline">
+      <article class="timeline-item reveal">
+        <div class="timeline-year" data-i18n="journey.now.year">2026 — الآن</div>
+        <h3 class="timeline-title" data-i18n="journey.now.title">كلية الزراعة، جامعة الإسكندرية</h3>
+        <p class="timeline-desc" data-i18n="journey.now.desc">الفرقة الأولى — البرنامج العام.</p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <div class="timeline-year" data-i18n="journey.school.year">2026</div>
+        <h3 class="timeline-title" data-i18n="journey.school.title">مدرسة صلاح سالم الثانوية للبنين</h3>
+        <p class="timeline-desc" data-i18n="journey.school.desc">القسم العلمي — الثانوية العامة.</p>
+        <div class="timeline-result">
+          <span class="label" data-i18n="journey.result.label">النتيجة</span>
+          <span class="value">215.5 / 320 — 67.34%</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SKILLS
+     ============================================ -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title" data-i18n="skills.title">المهارات</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="reveal">
+        <h3 class="skill-group-title" data-i18n="skills.prog.title">البرمجة والتكنولوجيا</h3>
+        <ul>
+          <li class="skill-item">
+            <span class="skill-name">Python</span>
+            <span class="skill-level" data-i18n="skills.python">مبتدئ</span>
+          </li>
+          <li class="skill-item">
+            <span class="skill-name">HTML</span>
+            <span class="skill-level" data-i18n="skills.html">أساسي · في التعلّم</span>
+          </li>
+          <li class="skill-item">
+            <span class="skill-name">CSS</span>
+            <span class="skill-level" data-i18n="skills.css">أساسي · في التعلّم</span>
+          </li>
+          <li class="skill-item">
+            <span class="skill-name">PHP</span>
+            <span class="skill-level" data-i18n="skills.php">تجارب عملية أساسية</span>
+          </li>
+          <li class="skill-item">
+            <span class="skill-name">Telegram Bot Development</span>
+            <span class="skill-level" data-i18n="skills.bots">مشروعات تجريبية</span>
+          </li>
+          <li class="skill-item">
+            <span class="skill-name">Termux</span>
+            <span class="skill-level" data-i18n="skills.termux">استخدام عملي</span>
+          </li>
+          <li class="skill-item">
+            <span class="skill-name">API Integration</span>
+            <span class="skill-level" data-i18n="skills.api">خبرة عملية أساسية</span>
+          </li>
+          <li class="skill-item">
+            <span class="skill-name">Cybersecurity</span>
+            <span class="skill-level" data-i18n="skills.cyber">اهتمام قيد التعلّم</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <h3 class="skill-group-title" data-i18n="skills.write.title">الكتابة والتفكير</h3>
+        <ul>
+          <li class="skill-item"><span class="skill-name" data-i18n="skills.arwrite">الكتابة العربية</span></li>
+          <li class="skill-item"><span class="skill-name" data-i18n="skills.creative">الكتابة الإبداعية</span></li>
+          <li class="skill-item"><span class="skill-name" data-i18n="skills.article">كتابة المقالات</span></li>
+          <li class="skill-item"><span class="skill-name" data-i18n="skills.critical">التفكير النقدي</span></li>
+          <li class="skill-item"><span class="skill-name" data-i18n="skills.debate">المناظرات والمغالطات المنطقية</span></li>
+          <li class="skill-item"><span class="skill-name" data-i18n="skills.research">البحث واستكشاف المعلومات</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PROJECTS
+     ============================================ -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title" data-i18n="projects.title">المشروعات</h2>
+    </div>
+
+    <article class="project reveal">
+      <div class="project-main">
+        <span class="project-num">01</span>
+        <h3 class="project-title" data-i18n="projects.p1.title">Digital Identity Experience</h3>
+        <p class="project-desc" data-i18n="projects.p1.desc">مشروع شخصي لتطوير موقع يعبّر عن الهوية الرقمية، ويجمع بين التصميم البسيط والمحتوى الشخصي والتجربة التفاعلية. هذا الموقع نفسه هو النسخة الأولى من المشروع.</p>
+        <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      </div>
+      <span class="project-status" data-i18n="projects.p1.status">In Development</span>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-main">
+        <span class="project-num">02</span>
+        <h3 class="project-title" data-i18n="projects.p2.title">Telegram Bot Development</h3>
+        <p class="project-desc" data-i18n="projects.p2.desc">تجارب عملية في تطوير بوتات Telegram باستخدام PHP وPython، والتعامل مع Telegram Bot API.</p>
+        <div class="project-tech"><span>PHP</span><span>Python</span><span>Telegram Bot API</span></div>
+      </div>
+      <span class="project-status" data-i18n="projects.p2.status">Experimental</span>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-main">
+        <span class="project-num">03</span>
+        <h3 class="project-title" data-i18n="projects.p3.title">Arabic Writing Projects</h3>
+        <p class="project-desc" data-i18n="projects.p3.desc">مشروعات وكتابات عربية في المقالات والكتابة الإبداعية والموضوعات النفسية والفلسفية.</p>
+      </div>
+      <span class="project-status" data-i18n="projects.p3.status">Ongoing</span>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-main">
+        <span class="project-num">04</span>
+        <h3 class="project-title" data-i18n="projects.p4.title">Creative Digital Experiences</h3>
+        <p class="project-desc" data-i18n="projects.p4.desc">تجارب شخصية في تصميم أفكار ومشروعات رقمية تفاعلية.</p>
+      </div>
+      <span class="project-status" data-i18n="projects.p4.status">Experimental</span>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================
+     WRITING & INTERESTS
+     ============================================ -->
+<section id="writing" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title" data-i18n="writing.title">الكتابة والاهتمامات</h2>
+    </div>
+
+    <ul class="interests reveal">
+      <li data-i18n="writing.i1">الكتابة العربية</li>
+      <li data-i18n="writing.i2">علم النفس</li>
+      <li data-i18n="writing.i3">الفلسفة</li>
+      <li data-i18n="writing.i4">التفكير النقدي</li>
+      <li data-i18n="writing.i5">القراءة</li>
+      <li data-i18n="writing.i6">اللغات</li>
+      <li data-i18n="writing.i7">كرة القدم</li>
+      <li data-i18n="writing.i8">التكنولوجيا</li>
+    </ul>
+
+    <blockquote class="writing-quote reveal">
+      <p data-i18n="writing.quote">"Curiosity is where every new journey begins."</p>
+      <span class="source" data-i18n="writing.quoteAr">"الفضول هو حيث تبدأ كل رحلة جديدة."</span>
+    </blockquote>
+
+    <div class="articles-soon reveal">
+      <span class="label" data-i18n="writing.soon.label">Coming Soon</span>
+      <p data-i18n="writing.soon.desc">مساحة مخصّصة للمقالات والكتابات التي ستُنشر هنا مستقبلًا.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     EXPERIENCE
+     ============================================ -->
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title" data-i18n="experience.title">الخبرات والتطوع</h2>
+    </div>
+
+    <article class="exp-item reveal">
+      <div>
+        <h3 class="exp-company" data-i18n="experience.company">شركة رؤية خضراء — Green Vision Company</h3>
+        <div class="exp-meta">
+          <span data-i18n="experience.dept">قسم كتابة المحتوى</span>
+          <span class="dot">•</span>
+          <span data-i18n="experience.type">مشاركة تطوعية</span>
+        </div>
+        <p class="exp-desc" data-i18n="experience.desc">مشاركة تطوعية في قسم كتابة المحتوى.</p>
+      </div>
+      <span class="exp-role" data-i18n="experience.role">Volunteer</span>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================
+     CERTIFICATIONS
+     ============================================ -->
+<section id="certifications" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title" data-i18n="certifications.title">الشهادات</h2>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-info">
+        <h3 data-i18n="certifications.name">Food Safety Course</h3>
+        <p class="sector" data-i18n="certifications.sector">القطاع: التموين والإعاشة</p>
+        <span class="hint" data-i18n="certifications.hint">اضغط على الصورة لعرضها بالحجم الكامل</span>
+      </div>
+
+      <button class="cert-image" id="certTrigger" aria-label="View certificate larger">
+        <img src="https://i.postimg.cc/W1mxVbwr/1793191474159.jpg"
+             alt="Food Safety Course Certificate"
+             width="800" height="600"
+             loading="lazy" />
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CONTACT
+     ============================================ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title" data-i18n="contact.title">التواصل</h2>
+    </div>
+
+    <p class="contact-intro reveal" data-i18n="contact.intro">للتواصل، النقاش، أو أي فرصة تطوعية أو تعاون — يمكنك الوصول إليّ من خلال أي من القنوات التالية.</p>
+
+    <div class="contact-list">
+      <a class="contact-item reveal" href="mailto:abdallhelsayed010@gmail.com">
+        <span class="contact-label" data-i18n="contact.email">Email</span>
+        <span class="contact-value">abdallhelsayed010@gmail.com</span>
+      </a>
+
+      <a class="contact-item reveal" href="https://wa.me/201019972619" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label" data-i18n="contact.phone">Phone / WhatsApp</span>
+        <span class="contact-value">01019972619</span>
+      </a>
+
+      <a class="contact-item reveal" href="https://t.me/o_s_k_r_1" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label" data-i18n="contact.telegram">Telegram</span>
+        <span class="contact-value">@o_s_k_r_1</span>
+      </a>
+
+      <a class="contact-item reveal" href="https://www.facebook.com/share/1ZddRz23iG/" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label" data-i18n="contact.facebook">Facebook</span>
+        <span class="contact-value" data-i18n="contact.facebookValue">Abdullah Elsayed</span>
+      </a>
+
+      <a class="contact-item reveal" href="https://www.instagram.com/abd_allahelsayed?cplk=Z3RyM2VtZDJ6bDls" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label" data-i18n="contact.instagram">Instagram</span>
+        <span class="contact-value">@abd_allahelsayed</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">B o D Y</div>
+    <p class="footer-tag" data-i18n="footer.tagline">"Designed as a reflection of an ongoing journey."</p>
+    <p class="footer-credit" data-i18n="footer.credit">Created by Abdullah Elsayed</p>
+
+    <div class="footer-meta">
+      <span>© <span id="year">2026</span> Abdullah Elsayed</span>
+      <span data-i18n="footer.rights">All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate preview" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <img id="lightboxImg" src="" alt="Certificate — full size" />
+</div>
+
+<script>
+/* ============================================
+   TRANSLATIONS
+   ============================================ */
+const translations = {
+  ar: {
+    'nav.about': 'من أنا',
+    'nav.journey': 'الرحلة',
+    'nav.skills': 'المهارات',
+    'nav.projects': 'المشروعات',
+    'nav.writing': 'الكتابة',
+    'nav.experience': 'الخبرات',
+    'nav.certifications': 'الشهادات',
+    'nav.contact': 'التواصل',
+
+    'hero.topLeft': '01 — ملف شخصي 2026',
+    'hero.topRight': 'كفر الدوار، البحيرة، مصر',
+    'hero.name1': 'عبدالله',
+    'hero.name2': 'السيد',
+    'hero.alias': 'B o D Y',
+    'hero.desc': 'طالب جامعي • مبرمج في طور التعلّم • كاتب',
+    'hero.scroll': 'اسحب للأسفل',
+
+    'about.title': 'من أنا',
+    'about.pull': 'أنا في مرحلة بناء وتعلّم مستمر — <span class="accent">لا أدّعي الوصول، بل أشارك الطريق.</span>',
+    'about.p1': 'أنا عبدالله السيد، طالب في الفرقة الأولى بكلية الزراعة، جامعة الإسكندرية — البرنامج العام. أقيم في كفر الدوار، البحيرة، مصر.',
+    'about.p2': 'أهتم بالبرمجة والتكنولوجيا والكتابة والتفكير النقدي. أقرأ وأكتب وأستكشف الأفكار واللغات، ولي اهتمام خاص بعلم النفس والفلسفة والمناظرات.',
+    'about.p3': 'أستخدم اسم <strong>B o D Y</strong> كهوية رقمية شخصية. هذا الموقع ليس سيرة ذاتية جاهزة، بل مساحة حيّة أنمو فيها وأحدّثها باستمرار.',
+
+    'journey.title': 'الرحلة التعليمية',
+    'journey.now.year': '2026 — الآن',
+    'journey.now.title': 'كلية الزراعة، جامعة الإسكندرية',
+    'journey.now.desc': 'الفرقة الأولى — البرنامج العام.',
+    'journey.school.year': '2026',
+    'journey.school.title': 'مدرسة صلاح سالم الثانوية للبنين',
+    'journey.school.desc': 'القسم العلمي — الثانوية العامة.',
+    'journey.result.label': 'النتيجة',
+
+    'skills.title': 'المهارات',
+    'skills.prog.title': 'البرمجة والتكنولوجيا',
+    'skills.write.title': 'الكتابة والتفكير',
+    'skills.python': 'مبتدئ',
+    'skills.html': 'أساسي · في التعلّم',
+    'skills.css': 'أساسي · في التعلّم',
+    'skills.php': 'تجارب عملية أساسية',
+    'skills.bots': 'مشروعات تجريبية',
+    'skills.termux': 'استخدام عملي',
+    'skills.api': 'خبرة عملية أساسية',
+    'skills.cyber': 'اهتمام قيد التعلّم',
+    'skills.arwrite': 'الكتابة العربية',
+    'skills.creative': 'الكتابة الإبداعية',
+    'skills.article': 'كتابة المقالات',
+    'skills.critical': 'التفكير النقدي',
+    'skills.debate': 'المناظرات والمغالطات المنطقية',
+    'skills.research': 'البحث واستكشاف المعلومات',
+
+    'projects.title': 'المشروعات',
+    'projects.p1.title': 'Digital Identity Experience',
+    'projects.p1.desc': 'مشروع شخصي لتطوير موقع يعبّر عن الهوية الرقمية، ويجمع بين التصميم البسيط والمحتوى الشخصي والتجربة التفاعلية. هذا الموقع نفسه هو النسخة الأولى من المشروع.',
+    'projects.p1.status': 'قيد التطوير',
+    'projects.p2.title': 'Telegram Bot Development',
+    'projects.p2.desc': 'تجارب عملية في تطوير بوتات Telegram باستخدام PHP وPython، والتعامل مع Telegram Bot API.',
+    'projects.p2.status': 'تجريبي',
+    'projects.p3.title': 'Arabic Writing Projects',
+    'projects.p3.desc': 'مشروعات وكتابات عربية في المقالات والكتابة الإبداعية والموضوعات النفسية والفلسفية.',
+    'projects.p3.status': 'مستمر',
+    'projects.p4.title': 'Creative Digital Experiences',
+    'projects.p4.desc': 'تجارب شخصية في تصميم أفكار ومشروعات رقمية تفاعلية.',
+    'projects.p4.status': 'تجريبي',
+
+    'writing.title': 'الكتابة والاهتمامات',
+    'writing.i1': 'الكتابة العربية',
+    'writing.i2': 'علم النفس',
+    'writing.i3': 'الفلسفة',
+    'writing.i4': 'التفكير النقدي',
+    'writing.i5': 'القراءة',
+    'writing.i6': 'اللغات',
+    'writing.i7': 'كرة القدم',
+    'writing.i8': 'التكنولوجيا',
+    'writing.quote': '"Curiosity is where every new journey begins."',
+    'writing.quoteAr': '"الفضول هو حيث تبدأ كل رحلة جديدة."',
+    'writing.soon.label': 'قريبًا',
+    'writing.soon.desc': 'مساحة مخصّصة للمقالات والكتابات التي ستُنشر هنا مستقبلًا.',
+
+    'experience.title': 'الخبرات والتطوع',
+    'experience.company': 'شركة رؤية خضراء — Green Vision Company',
+    'experience.dept': 'قسم كتابة المحتوى',
+    'experience.type': 'مشاركة تطوعية',
+    'experience.desc': 'مشاركة تطوعية في قسم كتابة المحتوى.',
+    'experience.role': 'متطوع',
+
+    'certifications.title': 'الشهادات',
+    'certifications.name': 'Food Safety Course',
+    'certifications.sector': 'القطاع: التموين والإعاشة',
+    'certifications.hint': 'اضغط على الصورة لعرضها بالحجم الكامل',
+
+    'contact.title': 'التواصل',
+    'contact.intro': 'للتواصل، النقاش، أو أي فرصة تطوعية أو تعاون — يمكنك الوصول إليّ من خلال أي من القنوات التالية.',
+    'contact.email': 'البريد الإلكتروني',
+    'contact.phone': 'الهاتف / واتساب',
+    'contact.telegram': 'تيليجرام',
+    'contact.facebook': 'فيسبوك',
+    'contact.facebookValue': 'عبدالله السيد',
+    'contact.instagram': 'إنستجرام',
+
+    'footer.tagline': '"صُمّم ليكون انعكاسًا لرحلة مستمرة."',
+    'footer.credit': 'من إبداع عبدالله السيد',
+    'footer.rights': 'جميع الحقوق محفوظة'
+  },
+  en: {
+    'nav.about': 'About',
+    'nav.journey': 'Journey',
+    'nav.skills': 'Skills',
+    'nav.projects': 'Projects',
+    'nav.writing': 'Writing',
+    'nav.experience': 'Experience',
+    'nav.certifications': 'Certifications',
+    'nav.contact': 'Contact',
+
+    'hero.topLeft': '01 — Portfolio 2026',
+    'hero.topRight': 'Kafr El-Dawwar, Beheira, Egypt',
+    'hero.name1': 'Abdullah',
+    'hero.name2': 'Elsayed',
+    'hero.alias': 'B o D Y',
+    'hero.desc': 'University Student • Aspiring Programmer • Writer',
+    'hero.scroll': 'Scroll to explore',
+
+    'about.title': 'About',
+    'about.pull': 'I am in a stage of continuous building and learning — <span class="accent">not claiming arrival, but sharing the path.</span>',
+    'about.p1': "I'm Abdullah Elsayed, a first-year student at the Faculty of Agriculture, Alexandria University — General Program. Based in Kafr El-Dawwar, Beheira, Egypt.",
+    'about.p2': "I'm interested in programming, technology, writing, and critical thinking. I read, write, and explore ideas and languages, with a particular interest in psychology, philosophy, and debate.",
+    'about.p3': 'I use the name <strong>B o D Y</strong> as my personal digital identity. This website is not a finished résumé, but a living space I keep building and updating.',
+
+    'journey.title': 'Educational Journey',
+    'journey.now.year': '2026 — Present',
+    'journey.now.title': 'Faculty of Agriculture, Alexandria University',
+    'journey.now.desc': 'First Year — General Program.',
+    'journey.school.year': '2026',
+    'journey.school.title': 'Salah Salem Boys Secondary School',
+    'journey.school.desc': 'Science Section — Thanaweya Amma.',
+    'journey.result.label': 'Result',
+
+    'skills.title': 'Skills',
+    'skills.prog.title': 'Programming & Technology',
+    'skills.write.title': 'Writing & Thinking',
+    'skills.python': 'Beginner',
+    'skills.html': 'Basic · Learning',
+    'skills.css': 'Basic · Learning',
+    'skills.php': 'Basic practical experimentation',
+    'skills.bots': 'Experimental projects',
+    'skills.termux': 'Practical usage',
+    'skills.api': 'Basic practical experience',
+    'skills.cyber': 'Learning interest',
+    'skills.arwrite': 'Arabic Content Writing',
+    'skills.creative': 'Creative Writing',
+    'skills.article': 'Article Writing',
+    'skills.critical': 'Critical Thinking',
+    'skills.debate': 'Debate & Logical Fallacies',
+    'skills.research': 'Research & Information Exploration',
+
+    'projects.title': 'Projects',
+    'projects.p1.title': 'Digital Identity Experience',
+    'projects.p1.desc': 'A personal project to develop a website that expresses digital identity, combining simple design, personal content, and an interactive experience. This website is the first version of that project.',
+    'projects.p1.status': 'In Development',
+    'projects.p2.title': 'Telegram Bot Development',
+    'projects.p2.desc': 'Practical experiments in developing Telegram bots using PHP and Python, working with the Telegram Bot API.',
+    'projects.p2.status': 'Experimental',
+    'projects.p3.title': 'Arabic Writing Projects',
+    'projects.p3.desc': 'Arabic writing projects in articles, creative writing, and psychological and philosophical topics.',
+    'projects.p3.status': 'Ongoing',
+    'projects.p4.title': 'Creative Digital Experiences',
+    'projects.p4.desc': 'Personal experiments in designing ideas and interactive digital projects.',
+    'projects.p4.status': 'Experimental',
+
+    'writing.title': 'Writing & Interests',
+    'writing.i1': 'Arabic Writing',
+    'writing.i2': 'Psychology',
+    'writing.i3': 'Philosophy',
+    'writing.i4': 'Critical Thinking',
+    'writing.i5': 'Reading',
+    'writing.i6': 'Languages',
+    'writing.i7': 'Football',
+    'writing.i8': 'Technology',
+    'writing.quote': '"Curiosity is where every new journey begins."',
+    'writing.quoteAr': '— Field note',
+    'writing.soon.label': 'Coming Soon',
+    'writing.soon.desc': 'A space reserved for articles and writings to be published here in the future.',
+
+    'experience.title': 'Experience & Volunteering',
+    'experience.company': 'Green Vision Company',
+    'experience.dept': 'Content Writing Department',
+    'experience.type': 'Volunteer participation',
+    'experience.desc': 'Volunteer participation in the content writing department.',
+    'experience.role': 'Volunteer',
+
+    'certifications.title': 'Certifications',
+    'certifications.name': 'Food Safety Course',
+    'certifications.sector': 'Sector: Catering',
+    'certifications.hint': 'Click the image to view full size',
+
+    'contact.title': 'Contact',
+    'contact.intro': "For conversation, discussion, or any volunteer opportunity or collaboration — you can reach me through any of the channels below.",
+    'contact.email': 'Email',
+    'contact.phone': 'Phone / WhatsApp',
+    'contact.telegram': 'Telegram',
+    'contact.facebook': 'Facebook',
+    'contact.facebookValue': 'Abdullah Elsayed',
+    'contact.instagram': 'Instagram',
+
+    'footer.tagline': '"Designed as a reflection of an ongoing journey."',
+    'footer.credit': 'Created by Abdullah Elsayed',
+    'footer.rights': 'All rights reserved'
+  }
+};
+
+/* ============================================
+   LANGUAGE MANAGEMENT
+   ============================================ */
+let currentLang = localStorage.getItem('bdy-lang') || 'ar';
+
+function applyLang(lang) {
+  currentLang = lang;
+  const html = document.documentElement;
+  html.setAttribute('lang', lang);
+  html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const val = translations[lang][key];
+    if (val !== undefined) el.innerHTML = val;
+  });
+
+  const toggle = document.getElementById('langToggle');
+  toggle.textContent = lang === 'ar' ? 'EN' : 'عربي';
+  toggle.setAttribute('aria-label', lang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية');
+
+  localStorage.setItem('bdy-lang', lang);
+}
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  applyLang(currentLang === 'ar' ? 'en' : 'ar');
+});
+
+applyLang(currentLang);
+
+/* ============================================
+   MOBILE MENU
+   ============================================ */
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  menuToggle.classList.toggle('active', isOpen);
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuToggle.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
+/* ============================================
+   CUSTOM CURSOR
+   ============================================ */
+const cursor = document.getElementById('cursor');
+const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+if (!isTouch) {
+  let cx = 0, cy = 0, tx = 0, ty = 0;
+  let firstMove = false;
+
+  document.addEventListener('mousemove', (e) => {
+    tx = e.clientX;
+    ty = e.clientY;
+    if (!firstMove) {
+      cx = tx; cy = ty;
+      firstMove = true;
+      cursor.classList.add('active');
+    }
+  });
+
+  document.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+  document.addEventListener('mouseenter', () => { if (firstMove) cursor.classList.add('active'); });
+
+  function animateCursor() {
+    cx += (tx - cx) * 0.2;
+    cy += (ty - cy) * 0.2;
+    cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  const hoverTargets = document.querySelectorAll('a, button, .cert-image, .interests li');
+  hoverTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+}
+
+/* ============================================
+   SCROLL PROGRESS + BACK TO TOP
+   ============================================ */
+const progressBar = document.getElementById('progressBar');
+const backToTop = document.getElementById('backToTop');
+
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+      backToTop.classList.toggle('visible', scrollTop > 500);
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ============================================
+   REVEAL ON SCROLL
+   ============================================ */
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReduced && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+const certTrigger = document.getElementById('certTrigger');
+const certSource = certTrigger.querySelector('img');
+
+function openLightbox() {
+  lightboxImg.src = certSource.src;
+  lightboxImg.alt = certSource.alt;
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+certTrigger.addEventListener('click', openLightbox);
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+});
+
+/* ============================================
+   CURRENT YEAR
+   ============================================ */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ============================================
+   IMAGE ERROR FALLBACK
+   ============================================ */
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', () => {
+    img.style.background = '#131313';
+    img.style.minHeight = '200px';
+    img.alt = 'Image unavailable';
+    img.style.opacity = '0.4';
+  });
+});
+</script>
+</body>
+</html>
